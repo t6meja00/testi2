@@ -38,14 +38,14 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -123,7 +123,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(572, 289);
+            this.tabPage2.Size = new System.Drawing.Size(512, 315);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -197,65 +197,15 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(101, 341);
             this.tableLayoutPanel3.TabIndex = 8;
             // 
-            // button3
+            // button10
             // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button3.Location = new System.Drawing.Point(3, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(95, 36);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "close";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4.Location = new System.Drawing.Point(3, 45);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(95, 36);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "close";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button5.Location = new System.Drawing.Point(3, 87);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(95, 36);
-            this.button5.TabIndex = 8;
-            this.button5.Text = "close";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button6.Location = new System.Drawing.Point(3, 129);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(95, 36);
-            this.button6.TabIndex = 8;
-            this.button6.Text = "close";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button7.Location = new System.Drawing.Point(3, 171);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(95, 36);
-            this.button7.TabIndex = 8;
-            this.button7.Text = "close";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button8.Location = new System.Drawing.Point(3, 213);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(95, 36);
-            this.button8.TabIndex = 8;
-            this.button8.Text = "close";
-            this.button8.UseVisualStyleBackColor = true;
+            this.button10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button10.Location = new System.Drawing.Point(3, 297);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(95, 41);
+            this.button10.TabIndex = 8;
+            this.button10.Text = "close";
+            this.button10.UseVisualStyleBackColor = true;
             // 
             // button9
             // 
@@ -267,15 +217,66 @@
             this.button9.Text = "close";
             this.button9.UseVisualStyleBackColor = true;
             // 
-            // button10
+            // button8
             // 
-            this.button10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button10.Location = new System.Drawing.Point(3, 297);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(95, 41);
-            this.button10.TabIndex = 8;
-            this.button10.Text = "close";
-            this.button10.UseVisualStyleBackColor = true;
+            this.button8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button8.Location = new System.Drawing.Point(3, 213);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(95, 36);
+            this.button8.TabIndex = 8;
+            this.button8.Text = "close";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button7.Location = new System.Drawing.Point(3, 171);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(95, 36);
+            this.button7.TabIndex = 8;
+            this.button7.Text = "close";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button6.Location = new System.Drawing.Point(3, 129);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(95, 36);
+            this.button6.TabIndex = 8;
+            this.button6.Text = "close";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button5.Location = new System.Drawing.Point(3, 87);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(95, 36);
+            this.button5.TabIndex = 8;
+            this.button5.Text = "close";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button4.Location = new System.Drawing.Point(3, 45);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(95, 36);
+            this.button4.TabIndex = 8;
+            this.button4.Text = "close";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button3.Location = new System.Drawing.Point(3, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(95, 36);
+            this.button3.TabIndex = 8;
+            this.button3.Text = "close";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form1
             // 
