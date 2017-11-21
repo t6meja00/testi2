@@ -137,6 +137,7 @@
             this.dataGridViewInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewInfo.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewInfo.Name = "dataGridViewInfo";
+            this.dataGridViewInfo.ReadOnly = true;
             this.dataGridViewInfo.Size = new System.Drawing.Size(506, 309);
             this.dataGridViewInfo.TabIndex = 2;
             // 
