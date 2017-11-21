@@ -33,10 +33,13 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageMain = new System.Windows.Forms.TabPage();
             this.tabPageInfo = new System.Windows.Forms.TabPage();
+            this.dataGridViewInfo = new System.Windows.Forms.DataGridView();
+            this.tabPageAdmin = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.button8HoursAgo = new System.Windows.Forms.Button();
             this.buttonLastHour = new System.Windows.Forms.Button();
             this.button2HoursAgo = new System.Windows.Forms.Button();
             this.button3HoursAgo = new System.Windows.Forms.Button();
@@ -44,15 +47,12 @@
             this.button5HoursAgo = new System.Windows.Forms.Button();
             this.button6HoursAgo = new System.Windows.Forms.Button();
             this.button7HoursAgo = new System.Windows.Forms.Button();
-            this.button8HoursAgo = new System.Windows.Forms.Button();
-            this.tabPageAdmin = new System.Windows.Forms.TabPage();
-            this.dataGridViewInfo = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInfo)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInfo)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -129,6 +129,26 @@
             this.tabPageInfo.Text = "Info";
             this.tabPageInfo.UseVisualStyleBackColor = true;
             // 
+            // dataGridViewInfo
+            // 
+            this.dataGridViewInfo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewInfo.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
+            this.dataGridViewInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewInfo.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewInfo.Name = "dataGridViewInfo";
+            this.dataGridViewInfo.Size = new System.Drawing.Size(506, 309);
+            this.dataGridViewInfo.TabIndex = 2;
+            // 
+            // tabPageAdmin
+            // 
+            this.tabPageAdmin.Location = new System.Drawing.Point(4, 22);
+            this.tabPageAdmin.Name = "tabPageAdmin";
+            this.tabPageAdmin.Size = new System.Drawing.Size(512, 315);
+            this.tabPageAdmin.TabIndex = 2;
+            this.tabPageAdmin.Text = "Admin";
+            this.tabPageAdmin.UseVisualStyleBackColor = true;
+            // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Controls.Add(this.textBoxSearch);
@@ -185,6 +205,16 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(101, 341);
             this.tableLayoutPanel3.TabIndex = 8;
+            // 
+            // button8HoursAgo
+            // 
+            this.button8HoursAgo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button8HoursAgo.Location = new System.Drawing.Point(3, 3);
+            this.button8HoursAgo.Name = "button8HoursAgo";
+            this.button8HoursAgo.Size = new System.Drawing.Size(95, 36);
+            this.button8HoursAgo.TabIndex = 9;
+            this.button8HoursAgo.Text = "8 hours ago";
+            this.button8HoursAgo.UseVisualStyleBackColor = true;
             // 
             // buttonLastHour
             // 
@@ -256,36 +286,6 @@
             this.button7HoursAgo.Text = "7 hours ago";
             this.button7HoursAgo.UseVisualStyleBackColor = true;
             // 
-            // button8HoursAgo
-            // 
-            this.button8HoursAgo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button8HoursAgo.Location = new System.Drawing.Point(3, 3);
-            this.button8HoursAgo.Name = "button8HoursAgo";
-            this.button8HoursAgo.Size = new System.Drawing.Size(95, 36);
-            this.button8HoursAgo.TabIndex = 9;
-            this.button8HoursAgo.Text = "8 hours ago";
-            this.button8HoursAgo.UseVisualStyleBackColor = true;
-            // 
-            // tabPageAdmin
-            // 
-            this.tabPageAdmin.Location = new System.Drawing.Point(4, 22);
-            this.tabPageAdmin.Name = "tabPageAdmin";
-            this.tabPageAdmin.Size = new System.Drawing.Size(512, 315);
-            this.tabPageAdmin.TabIndex = 2;
-            this.tabPageAdmin.Text = "Admin";
-            this.tabPageAdmin.UseVisualStyleBackColor = true;
-            // 
-            // dataGridViewInfo
-            // 
-            this.dataGridViewInfo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            this.dataGridViewInfo.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
-            this.dataGridViewInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewInfo.Location = new System.Drawing.Point(3, 3);
-            this.dataGridViewInfo.Name = "dataGridViewInfo";
-            this.dataGridViewInfo.Size = new System.Drawing.Size(506, 309);
-            this.dataGridViewInfo.TabIndex = 2;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -299,10 +299,10 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPageInfo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInfo)).EndInit();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInfo)).EndInit();
             this.ResumeLayout(false);
 
         }
