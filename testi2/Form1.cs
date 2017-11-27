@@ -24,7 +24,7 @@ namespace testi2
 
             labelClock.Text = hours.ToString() + " : " + minutes.ToString();
 
-            FillData("select * from weather");
+           
 
 
         }
@@ -45,5 +45,12 @@ namespace testi2
             dataGridViewInfo.Columns[3].HeaderText = "Light";
         }
 
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedIndex == 1)
+            {
+                FillData("select * from weather");
+            }
+        }
     }
 }

@@ -39,10 +39,13 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanelClock = new System.Windows.Forms.TableLayoutPanel();
             this.labelClock = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.pictureBoxMainBackground = new System.Windows.Forms.PictureBox();
             this.tabPageInfo = new System.Windows.Forms.TabPage();
             this.dataGridViewInfo = new System.Windows.Forms.DataGridView();
             this.tabPageAdmin = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonClearDatabase = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.buttonSearch = new System.Windows.Forms.Button();
@@ -56,6 +59,7 @@
             this.button6HoursAgo = new System.Windows.Forms.Button();
             this.button7HoursAgo = new System.Windows.Forms.Button();
             this.timerClock = new System.Windows.Forms.Timer(this.components);
+            this.timerUpdateMainview = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageMain.SuspendLayout();
@@ -66,6 +70,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMainBackground)).BeginInit();
             this.tabPageInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInfo)).BeginInit();
+            this.tabPageAdmin.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
@@ -122,6 +128,7 @@
             this.tabControl1.Size = new System.Drawing.Size(520, 341);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabControl1.TabIndex = 4;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPageMain
             // 
@@ -144,6 +151,7 @@
             this.tableLayoutPanelMainView.Controls.Add(this.pictureBox1, 2, 2);
             this.tableLayoutPanelMainView.Controls.Add(this.pictureBox2, 0, 2);
             this.tableLayoutPanelMainView.Controls.Add(this.tableLayoutPanelClock, 1, 2);
+            this.tableLayoutPanelMainView.Controls.Add(this.label1, 1, 1);
             this.tableLayoutPanelMainView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelMainView.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanelMainView.Name = "tableLayoutPanelMainView";
@@ -200,6 +208,15 @@
             this.labelClock.Text = "00 : 00";
             this.labelClock.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(171, 103);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "label1";
+            // 
             // pictureBoxMainBackground
             // 
             this.pictureBoxMainBackground.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -234,12 +251,44 @@
             // 
             // tabPageAdmin
             // 
+            this.tabPageAdmin.Controls.Add(this.tableLayoutPanel2);
             this.tabPageAdmin.Location = new System.Drawing.Point(4, 22);
             this.tabPageAdmin.Name = "tabPageAdmin";
             this.tabPageAdmin.Size = new System.Drawing.Size(512, 315);
             this.tabPageAdmin.TabIndex = 2;
             this.tabPageAdmin.Text = "Admin";
             this.tabPageAdmin.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 4;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.Controls.Add(this.buttonClearDatabase, 3, 3);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 4;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(512, 315);
+            this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // buttonClearDatabase
+            // 
+            this.buttonClearDatabase.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonClearDatabase.ForeColor = System.Drawing.Color.Red;
+            this.buttonClearDatabase.Location = new System.Drawing.Point(387, 237);
+            this.buttonClearDatabase.Name = "buttonClearDatabase";
+            this.buttonClearDatabase.Size = new System.Drawing.Size(122, 75);
+            this.buttonClearDatabase.TabIndex = 0;
+            this.buttonClearDatabase.Text = "EMPTY DATABASE";
+            this.buttonClearDatabase.UseVisualStyleBackColor = true;
+            this.buttonClearDatabase.Click += new System.EventHandler(this.buttonClearDatabase_Click);
             // 
             // flowLayoutPanel2
             // 
@@ -384,6 +433,11 @@
             this.timerClock.Interval = 1000;
             this.timerClock.Tick += new System.EventHandler(this.timerClock_Tick);
             // 
+            // timerUpdateMainview
+            // 
+            this.timerUpdateMainview.Interval = 10000;
+            this.timerUpdateMainview.Tick += new System.EventHandler(this.timerUpdateMainview_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -399,12 +453,15 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPageMain.ResumeLayout(false);
             this.tableLayoutPanelMainView.ResumeLayout(false);
+            this.tableLayoutPanelMainView.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tableLayoutPanelClock.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMainBackground)).EndInit();
             this.tabPageInfo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInfo)).EndInit();
+            this.tabPageAdmin.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -440,6 +497,10 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelClock;
         private System.Windows.Forms.Label labelClock;
         private System.Windows.Forms.Timer timerClock;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Timer timerUpdateMainview;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Button buttonClearDatabase;
     }
 }
 

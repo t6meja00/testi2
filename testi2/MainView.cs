@@ -37,5 +37,11 @@ namespace testi2
             }
             
         }
+
+        private void timerUpdateMainview_Tick(object sender, EventArgs e)
+        {
+            Weather getWeatherInfo = new Weather();
+            label1.Text = getWeatherInfo.GetLight();
+        }
     }
 }
