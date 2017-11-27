@@ -28,10 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonCurrentTime = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageMain = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelClock = new System.Windows.Forms.Label();
+            this.pictureBoxMainBackground = new System.Windows.Forms.PictureBox();
             this.tabPageInfo = new System.Windows.Forms.TabPage();
             this.dataGridViewInfo = new System.Windows.Forms.DataGridView();
             this.tabPageAdmin = new System.Windows.Forms.TabPage();
@@ -47,8 +55,15 @@
             this.button5HoursAgo = new System.Windows.Forms.Button();
             this.button6HoursAgo = new System.Windows.Forms.Button();
             this.button7HoursAgo = new System.Windows.Forms.Button();
+            this.timerClock = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.tabPageMain.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.tableLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMainBackground)).BeginInit();
             this.tabPageInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInfo)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
@@ -110,6 +125,8 @@
             // 
             // tabPageMain
             // 
+            this.tabPageMain.Controls.Add(this.tableLayoutPanel2);
+            this.tabPageMain.Controls.Add(this.pictureBoxMainBackground);
             this.tabPageMain.Location = new System.Drawing.Point(4, 22);
             this.tabPageMain.Name = "tabPageMain";
             this.tabPageMain.Padding = new System.Windows.Forms.Padding(3);
@@ -117,6 +134,80 @@
             this.tabPageMain.TabIndex = 0;
             this.tabPageMain.Text = "Main";
             this.tabPageMain.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.Controls.Add(this.pictureBox1, 2, 2);
+            this.tableLayoutPanel2.Controls.Add(this.pictureBox2, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 1, 2);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(506, 309);
+            this.tableLayoutPanel2.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Location = new System.Drawing.Point(339, 209);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(164, 97);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Location = new System.Drawing.Point(3, 209);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(162, 97);
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 3;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel4.Controls.Add(this.labelClock, 1, 1);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(171, 209);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 3;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(162, 97);
+            this.tableLayoutPanel4.TabIndex = 3;
+            // 
+            // labelClock
+            // 
+            this.labelClock.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelClock.Font = new System.Drawing.Font("Bahnschrift", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelClock.Location = new System.Drawing.Point(19, 9);
+            this.labelClock.Name = "labelClock";
+            this.labelClock.Size = new System.Drawing.Size(123, 77);
+            this.labelClock.TabIndex = 2;
+            this.labelClock.Text = "00 : 00";
+            this.labelClock.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // pictureBoxMainBackground
+            // 
+            this.pictureBoxMainBackground.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBoxMainBackground.Location = new System.Drawing.Point(3, 3);
+            this.pictureBoxMainBackground.Name = "pictureBoxMainBackground";
+            this.pictureBoxMainBackground.Size = new System.Drawing.Size(506, 309);
+            this.pictureBoxMainBackground.TabIndex = 0;
+            this.pictureBoxMainBackground.TabStop = false;
             // 
             // tabPageInfo
             // 
@@ -137,6 +228,7 @@
             this.dataGridViewInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewInfo.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewInfo.Name = "dataGridViewInfo";
+            this.dataGridViewInfo.ReadOnly = true;
             this.dataGridViewInfo.Size = new System.Drawing.Size(506, 309);
             this.dataGridViewInfo.TabIndex = 2;
             // 
@@ -286,18 +378,31 @@
             this.button7HoursAgo.Text = "7 hours ago";
             this.button7HoursAgo.UseVisualStyleBackColor = true;
             // 
+            // timerClock
+            // 
+            this.timerClock.Enabled = true;
+            this.timerClock.Interval = 1000;
+            this.timerClock.Tick += new System.EventHandler(this.timerClock_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(634, 381);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(650, 420);
             this.Name = "Form1";
             this.Text = "Form1";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
+            this.tabPageMain.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMainBackground)).EndInit();
             this.tabPageInfo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInfo)).EndInit();
             this.flowLayoutPanel2.ResumeLayout(false);
@@ -328,6 +433,13 @@
         private System.Windows.Forms.Button button8HoursAgo;
         private System.Windows.Forms.TabPage tabPageAdmin;
         private System.Windows.Forms.DataGridView dataGridViewInfo;
+        private System.Windows.Forms.PictureBox pictureBoxMainBackground;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Label labelClock;
+        private System.Windows.Forms.Timer timerClock;
     }
 }
 
