@@ -34,5 +34,7 @@ namespace testi2
             dataGridViewInfo.Columns[2].HeaderText = "Humidity";
             dataGridViewInfo.Columns[3].HeaderText = "Light";
         }
+
+
     }
 }
