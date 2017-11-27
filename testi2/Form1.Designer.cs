@@ -36,7 +36,6 @@
             this.dataGridViewInfo = new System.Windows.Forms.DataGridView();
             this.tabPageAdmin = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonEmpty = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.buttonSearch = new System.Windows.Forms.Button();
@@ -49,6 +48,7 @@
             this.button5HoursAgo = new System.Windows.Forms.Button();
             this.button6HoursAgo = new System.Windows.Forms.Button();
             this.button7HoursAgo = new System.Windows.Forms.Button();
+            this.ButtonEmpty = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageInfo.SuspendLayout();
@@ -168,7 +168,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Controls.Add(this.buttonEmpty, 3, 9);
+            this.tableLayoutPanel2.Controls.Add(this.ButtonEmpty, 3, 9);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -185,18 +185,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(869, 427);
             this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // buttonEmpty
-            // 
-            this.buttonEmpty.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonEmpty.ForeColor = System.Drawing.Color.Red;
-            this.buttonEmpty.Location = new System.Drawing.Point(654, 381);
-            this.buttonEmpty.Name = "buttonEmpty";
-            this.buttonEmpty.Size = new System.Drawing.Size(212, 43);
-            this.buttonEmpty.TabIndex = 0;
-            this.buttonEmpty.Text = "Empty database";
-            this.buttonEmpty.UseVisualStyleBackColor = true;
-            this.buttonEmpty.Click += new System.EventHandler(this.buttonEmpty_Click);
             // 
             // flowLayoutPanel2
             // 
@@ -335,6 +323,18 @@
             this.button7HoursAgo.Text = "7 hours ago";
             this.button7HoursAgo.UseVisualStyleBackColor = true;
             // 
+            // ButtonEmpty
+            // 
+            this.ButtonEmpty.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ButtonEmpty.ForeColor = System.Drawing.Color.Red;
+            this.ButtonEmpty.Location = new System.Drawing.Point(654, 381);
+            this.ButtonEmpty.Name = "ButtonEmpty";
+            this.ButtonEmpty.Size = new System.Drawing.Size(212, 43);
+            this.ButtonEmpty.TabIndex = 0;
+            this.ButtonEmpty.Text = "Empty database";
+            this.ButtonEmpty.UseVisualStyleBackColor = true;
+            this.ButtonEmpty.Click += new System.EventHandler(this.ButtonEmpty_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -380,7 +380,7 @@
         private System.Windows.Forms.TabPage tabPageAdmin;
         private System.Windows.Forms.DataGridView dataGridViewInfo;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Button buttonEmpty;
+        private System.Windows.Forms.Button ButtonEmpty;
     }
 }
 

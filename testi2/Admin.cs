@@ -4,14 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using System.Windows.Forms;
 
 namespace testi2
 {
     public partial class Form1
     {
-        private void buttonEmpty_Click(object sender, EventArgs e)
+        private void ButtonEmpty_Click(object sender, EventArgs e)
         {
-            Database.Execute("truncate table weather");
+            if (MessageBox.Show("Are you sure?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+            {
+                Database.Execute("truncate table weather");
+            }
         }
+
     } 
 }
