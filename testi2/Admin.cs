@@ -16,7 +16,7 @@ namespace testi2
             {
                 Database.Execute("truncate table weather");
             }
-        }
 
-    } 
+        }
+    }
 }
