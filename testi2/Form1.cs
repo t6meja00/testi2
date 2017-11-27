@@ -45,5 +45,6 @@ namespace testi2
             dataGridViewInfo.Columns[3].HeaderText = "Light";
         }
 
+
     }
 }
