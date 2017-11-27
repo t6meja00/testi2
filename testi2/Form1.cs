@@ -7,16 +7,26 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
 
 namespace testi2
 {
     public partial class Form1 : Form
     {
+        private int hours = DateTime.Now.Hour;
+        private int minutes = DateTime.Now.Minute;
+        
+
         public Form1()
         {
             InitializeComponent();
+
+            labelClock.Text = hours.ToString() + " : " + minutes.ToString();
+
             FillData("select * from weather");
+
+
         }
 
         private void FillData(string query)
@@ -34,7 +44,6 @@ namespace testi2
             dataGridViewInfo.Columns[2].HeaderText = "Humidity";
             dataGridViewInfo.Columns[3].HeaderText = "Light";
         }
-
 
     }
 }
