@@ -62,7 +62,7 @@ namespace testi2
 
         public static string GetOneCell(string query)
         {
-            string cell = "";
+            List<string> cells = new List<string>();
             MySqlDataReader reader = null;
             MySqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = query;
@@ -75,20 +75,21 @@ namespace testi2
 
                 while (reader.Read())
                 {
-                    cell = reader.ToString();
+                    cells.Add(reader.Read().ToString());
                 }
             }
-            catch (Exception erro)
+            catch (Exception)
             {
-                //
+                System.Windows.Forms.MessageBox.Show("virhe");
             }
             finally
             {
                 reader.Close();
                 conn.Close();
             }
+            Console.WriteLine(cells);
             
-            return cell;
+            return cells[0];
         }
     }
 }

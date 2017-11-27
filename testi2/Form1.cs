@@ -24,9 +24,6 @@ namespace testi2
 
             labelClock.Text = hours.ToString() + " : " + minutes.ToString();
 
-           
-
-
         }
 
         private void FillData(string query)

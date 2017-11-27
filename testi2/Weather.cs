@@ -15,7 +15,7 @@ namespace testi2
 
         public string GetLight()
         {
-            return Database.GetOneCell("SELECT light FROM weather WHERE time IN(SELECT MAX(time)) ORDER BY time DESC;");
+            return Database.GetOneCell("SELECT * FROM weather;");
         }
     }
 }
