@@ -333,7 +333,7 @@
             this.ButtonEmpty.TabIndex = 0;
             this.ButtonEmpty.Text = "Empty database";
             this.ButtonEmpty.UseVisualStyleBackColor = true;
-            this.ButtonEmpty.Click += new System.EventHandler(this.ButtonEmpty_Click);
+            
             // 
             // Form1
             // 
