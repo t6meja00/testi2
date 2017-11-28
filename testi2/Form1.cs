@@ -16,7 +16,7 @@ namespace testi2
         private static string hourNow = DateTime.Now.ToString("HH", System.Globalization.DateTimeFormatInfo.InvariantInfo);
         private static string dateNow = DateTime.Now.ToString("dd.MM.yyyy", System.Globalization.DateTimeFormatInfo.InvariantInfo);
 
-
+        
         public Form1()
         {
             InitializeComponent();
