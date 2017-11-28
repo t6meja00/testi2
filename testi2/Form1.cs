@@ -13,6 +13,10 @@ namespace testi2
 {
     public partial class Form1 : Form
     {
+        private static string hourNow = DateTime.Now.ToString("HH", System.Globalization.DateTimeFormatInfo.InvariantInfo);
+        private static string dateNow = DateTime.Now.ToString("dd.MM.yyyy", System.Globalization.DateTimeFormatInfo.InvariantInfo);
+
+
         public Form1()
         {
             InitializeComponent();
@@ -33,6 +37,12 @@ namespace testi2
             dataGridViewInfo.Columns[1].HeaderText = "Temperature";
             dataGridViewInfo.Columns[2].HeaderText = "Humidity";
             dataGridViewInfo.Columns[3].HeaderText = "Light";
+            dataGridViewInfo.Sort(dataGridViewInfo.Columns[0], ListSortDirection.Descending);
+        }
+
+        private void buttonCurrentTime_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

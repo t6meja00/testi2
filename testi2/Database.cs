@@ -18,8 +18,6 @@ namespace testi2
                 // Open the connection
                 conn.Open();
 
-                // Pass the connection to a command object
-                MySqlCommand cmd = new MySqlCommand(query, conn);
             }
             finally
             {

@@ -64,36 +64,39 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 83.17046F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.82953F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel1.Controls.Add(this.buttonCurrentTime, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.tabControl1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.01124F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.988764F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(633, 382);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(844, 470);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // buttonCurrentTime
             // 
             this.buttonCurrentTime.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonCurrentTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCurrentTime.Location = new System.Drawing.Point(529, 350);
+            this.buttonCurrentTime.Location = new System.Drawing.Point(705, 431);
+            this.buttonCurrentTime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonCurrentTime.Name = "buttonCurrentTime";
-            this.buttonCurrentTime.Size = new System.Drawing.Size(101, 29);
+            this.buttonCurrentTime.Size = new System.Drawing.Size(135, 35);
             this.buttonCurrentTime.TabIndex = 8;
             this.buttonCurrentTime.Text = "Now";
             this.buttonCurrentTime.UseVisualStyleBackColor = true;
+            this.buttonCurrentTime.Click += new System.EventHandler(this.buttonCurrentTime_Click);
             // 
             // tabControl1
             // 
@@ -101,19 +104,21 @@
             this.tabControl1.Controls.Add(this.tabPageInfo);
             this.tabControl1.Controls.Add(this.tabPageAdmin);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(3, 3);
+            this.tabControl1.Location = new System.Drawing.Point(4, 4);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(520, 341);
+            this.tabControl1.Size = new System.Drawing.Size(693, 419);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabControl1.TabIndex = 4;
             // 
             // tabPageMain
             // 
-            this.tabPageMain.Location = new System.Drawing.Point(4, 22);
+            this.tabPageMain.Location = new System.Drawing.Point(4, 25);
+            this.tabPageMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPageMain.Name = "tabPageMain";
-            this.tabPageMain.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageMain.Size = new System.Drawing.Size(512, 315);
+            this.tabPageMain.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageMain.Size = new System.Drawing.Size(685, 390);
             this.tabPageMain.TabIndex = 0;
             this.tabPageMain.Text = "Main";
             this.tabPageMain.UseVisualStyleBackColor = true;
@@ -121,10 +126,11 @@
             // tabPageInfo
             // 
             this.tabPageInfo.Controls.Add(this.dataGridViewInfo);
-            this.tabPageInfo.Location = new System.Drawing.Point(4, 22);
+            this.tabPageInfo.Location = new System.Drawing.Point(4, 25);
+            this.tabPageInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPageInfo.Name = "tabPageInfo";
-            this.tabPageInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageInfo.Size = new System.Drawing.Size(512, 315);
+            this.tabPageInfo.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageInfo.Size = new System.Drawing.Size(685, 390);
             this.tabPageInfo.TabIndex = 1;
             this.tabPageInfo.Text = "Info";
             this.tabPageInfo.UseVisualStyleBackColor = true;
@@ -135,16 +141,19 @@
             this.dataGridViewInfo.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.dataGridViewInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewInfo.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewInfo.Location = new System.Drawing.Point(4, 4);
+            this.dataGridViewInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridViewInfo.Name = "dataGridViewInfo";
-            this.dataGridViewInfo.Size = new System.Drawing.Size(506, 309);
+            this.dataGridViewInfo.ReadOnly = true;
+            this.dataGridViewInfo.Size = new System.Drawing.Size(677, 382);
             this.dataGridViewInfo.TabIndex = 2;
             // 
             // tabPageAdmin
             // 
-            this.tabPageAdmin.Location = new System.Drawing.Point(4, 22);
+            this.tabPageAdmin.Location = new System.Drawing.Point(4, 25);
+            this.tabPageAdmin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPageAdmin.Name = "tabPageAdmin";
-            this.tabPageAdmin.Size = new System.Drawing.Size(512, 315);
+            this.tabPageAdmin.Size = new System.Drawing.Size(685, 391);
             this.tabPageAdmin.TabIndex = 2;
             this.tabPageAdmin.Text = "Admin";
             this.tabPageAdmin.UseVisualStyleBackColor = true;
@@ -153,24 +162,27 @@
             // 
             this.flowLayoutPanel2.Controls.Add(this.textBoxSearch);
             this.flowLayoutPanel2.Controls.Add(this.buttonSearch);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 350);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(4, 431);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(520, 25);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(693, 31);
             this.flowLayoutPanel2.TabIndex = 6;
             // 
             // textBoxSearch
             // 
-            this.textBoxSearch.Location = new System.Drawing.Point(3, 3);
+            this.textBoxSearch.Location = new System.Drawing.Point(4, 4);
+            this.textBoxSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(135, 20);
+            this.textBoxSearch.Size = new System.Drawing.Size(179, 22);
             this.textBoxSearch.TabIndex = 3;
             // 
             // buttonSearch
             // 
             this.buttonSearch.Dock = System.Windows.Forms.DockStyle.Left;
-            this.buttonSearch.Location = new System.Drawing.Point(144, 3);
+            this.buttonSearch.Location = new System.Drawing.Point(191, 4);
+            this.buttonSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(68, 20);
+            this.buttonSearch.Size = new System.Drawing.Size(91, 22);
             this.buttonSearch.TabIndex = 4;
             this.buttonSearch.Text = "Search";
             this.buttonSearch.UseVisualStyleBackColor = true;
@@ -189,7 +201,8 @@
             this.tableLayoutPanel3.Controls.Add(this.button6HoursAgo, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.button7HoursAgo, 0, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(529, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(705, 4);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 8;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
@@ -200,18 +213,19 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(101, 341);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(135, 419);
             this.tableLayoutPanel3.TabIndex = 8;
             // 
             // button8HoursAgo
             // 
             this.button8HoursAgo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button8HoursAgo.Location = new System.Drawing.Point(3, 3);
+            this.button8HoursAgo.Location = new System.Drawing.Point(4, 4);
+            this.button8HoursAgo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button8HoursAgo.Name = "button8HoursAgo";
-            this.button8HoursAgo.Size = new System.Drawing.Size(95, 36);
+            this.button8HoursAgo.Size = new System.Drawing.Size(127, 44);
             this.button8HoursAgo.TabIndex = 9;
             this.button8HoursAgo.Text = "8 hours ago";
             this.button8HoursAgo.UseVisualStyleBackColor = true;
@@ -219,9 +233,10 @@
             // buttonLastHour
             // 
             this.buttonLastHour.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonLastHour.Location = new System.Drawing.Point(3, 297);
+            this.buttonLastHour.Location = new System.Drawing.Point(4, 368);
+            this.buttonLastHour.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonLastHour.Name = "buttonLastHour";
-            this.buttonLastHour.Size = new System.Drawing.Size(95, 41);
+            this.buttonLastHour.Size = new System.Drawing.Size(127, 47);
             this.buttonLastHour.TabIndex = 8;
             this.buttonLastHour.Text = "Last hour";
             this.buttonLastHour.UseVisualStyleBackColor = true;
@@ -229,9 +244,10 @@
             // button2HoursAgo
             // 
             this.button2HoursAgo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2HoursAgo.Location = new System.Drawing.Point(3, 255);
+            this.button2HoursAgo.Location = new System.Drawing.Point(4, 316);
+            this.button2HoursAgo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2HoursAgo.Name = "button2HoursAgo";
-            this.button2HoursAgo.Size = new System.Drawing.Size(95, 36);
+            this.button2HoursAgo.Size = new System.Drawing.Size(127, 44);
             this.button2HoursAgo.TabIndex = 8;
             this.button2HoursAgo.Text = "2 hours ago";
             this.button2HoursAgo.UseVisualStyleBackColor = true;
@@ -239,9 +255,10 @@
             // button3HoursAgo
             // 
             this.button3HoursAgo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button3HoursAgo.Location = new System.Drawing.Point(3, 213);
+            this.button3HoursAgo.Location = new System.Drawing.Point(4, 264);
+            this.button3HoursAgo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button3HoursAgo.Name = "button3HoursAgo";
-            this.button3HoursAgo.Size = new System.Drawing.Size(95, 36);
+            this.button3HoursAgo.Size = new System.Drawing.Size(127, 44);
             this.button3HoursAgo.TabIndex = 8;
             this.button3HoursAgo.Text = "3 hours ago";
             this.button3HoursAgo.UseVisualStyleBackColor = true;
@@ -249,9 +266,10 @@
             // button4HoursAgo
             // 
             this.button4HoursAgo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4HoursAgo.Location = new System.Drawing.Point(3, 171);
+            this.button4HoursAgo.Location = new System.Drawing.Point(4, 212);
+            this.button4HoursAgo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button4HoursAgo.Name = "button4HoursAgo";
-            this.button4HoursAgo.Size = new System.Drawing.Size(95, 36);
+            this.button4HoursAgo.Size = new System.Drawing.Size(127, 44);
             this.button4HoursAgo.TabIndex = 8;
             this.button4HoursAgo.Text = "4 hours ago";
             this.button4HoursAgo.UseVisualStyleBackColor = true;
@@ -259,9 +277,10 @@
             // button5HoursAgo
             // 
             this.button5HoursAgo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button5HoursAgo.Location = new System.Drawing.Point(3, 129);
+            this.button5HoursAgo.Location = new System.Drawing.Point(4, 160);
+            this.button5HoursAgo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button5HoursAgo.Name = "button5HoursAgo";
-            this.button5HoursAgo.Size = new System.Drawing.Size(95, 36);
+            this.button5HoursAgo.Size = new System.Drawing.Size(127, 44);
             this.button5HoursAgo.TabIndex = 8;
             this.button5HoursAgo.Text = "5 hours ago";
             this.button5HoursAgo.UseVisualStyleBackColor = true;
@@ -269,9 +288,10 @@
             // button6HoursAgo
             // 
             this.button6HoursAgo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button6HoursAgo.Location = new System.Drawing.Point(3, 87);
+            this.button6HoursAgo.Location = new System.Drawing.Point(4, 108);
+            this.button6HoursAgo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button6HoursAgo.Name = "button6HoursAgo";
-            this.button6HoursAgo.Size = new System.Drawing.Size(95, 36);
+            this.button6HoursAgo.Size = new System.Drawing.Size(127, 44);
             this.button6HoursAgo.TabIndex = 8;
             this.button6HoursAgo.Text = "6 hours ago";
             this.button6HoursAgo.UseVisualStyleBackColor = true;
@@ -279,20 +299,22 @@
             // button7HoursAgo
             // 
             this.button7HoursAgo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button7HoursAgo.Location = new System.Drawing.Point(3, 45);
+            this.button7HoursAgo.Location = new System.Drawing.Point(4, 56);
+            this.button7HoursAgo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button7HoursAgo.Name = "button7HoursAgo";
-            this.button7HoursAgo.Size = new System.Drawing.Size(95, 36);
+            this.button7HoursAgo.Size = new System.Drawing.Size(127, 44);
             this.button7HoursAgo.TabIndex = 8;
             this.button7HoursAgo.Text = "7 hours ago";
             this.button7HoursAgo.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(634, 381);
+            this.ClientSize = new System.Drawing.Size(845, 469);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.MinimumSize = new System.Drawing.Size(650, 420);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MinimumSize = new System.Drawing.Size(861, 506);
             this.Name = "Form1";
             this.Text = "Form1";
             this.tableLayoutPanel1.ResumeLayout(false);
