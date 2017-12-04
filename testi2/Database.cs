@@ -18,7 +18,7 @@ namespace testi2
             {
                 // Open the connection
                 conn.Open();
-                
+
             }
             finally
             {
@@ -62,34 +62,23 @@ namespace testi2
 
         public static string GetOneCell(string query)
         {
-            List<string> cells = new List<string>();
-            MySqlDataReader reader = null;
-            MySqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = query;
+            conn.Close();
 
             try
             {
                 conn.Open();
 
-                reader = cmd.ExecuteReader();
-
-                while (reader.Read())
+                using (MySqlCommand command = new MySqlCommand(query, conn))
                 {
-                    cells.Add(reader.Read().ToString());
+                    return Convert.ToString(command.ExecuteScalar());
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                System.Windows.Forms.MessageBox.Show("virhe");
+                System.Windows.Forms.MessageBox.Show(e.ToString());
+                return "-";
             }
-            finally
-            {
-                reader.Close();
-                conn.Close();
-            }
-            Console.WriteLine(cells);
-            
-            return cells[0];
         }
+
     }
 }

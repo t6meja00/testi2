@@ -15,7 +15,17 @@ namespace testi2
 
         public string GetLight()
         {
-            return Database.GetOneCell("SELECT * FROM weather;");
+            return Database.GetOneCell("SELECT light FROM weather WHERE time = (SELECT MAX(time) FROM weather);");
+        }
+
+        public string GetTemperature()
+        {
+            return Database.GetOneCell("SELECT temperature FROM weather WHERE time = (SELECT MAX(time) FROM weather);");
+        }
+
+        public string GetHumidity()
+        {
+            return Database.GetOneCell("SELECT humidity FROM weather WHERE time = (SELECT MAX(time) FROM weather);");
         }
     }
 }

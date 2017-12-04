@@ -14,15 +14,30 @@ namespace testi2
 {
     public partial class Form1 : Form
     {
+        Weather getWeatherInfo = new Weather();
+        MoonPhase moon = new MoonPhase();
+
         private int hours = DateTime.Now.Hour;
         private int minutes = DateTime.Now.Minute;
         
-
         public Form1()
         {
             InitializeComponent();
+            
+            SetStyle(ControlStyles.UserPaint, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+            SetStyle(ControlStyles.DoubleBuffer, true);
 
             labelClock.Text = hours.ToString() + " : " + minutes.ToString();
+            labelLatestHumidity.Text = getWeatherInfo.GetHumidity() + " %";
+            labelLatestTemperature.Text = getWeatherInfo.GetTemperature() + " C";
+
+            UpdateBackgroundImage();
+            pictureBoxMoon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            Console.WriteLine(moon.MoonAge(DateTime.Today));
+            UpdateMoon(moon.MoonAge(DateTime.Today));
+
+            ColorAnimation();
 
         }
 
@@ -49,5 +64,13 @@ namespace testi2
                 FillData("select * from weather");
             }
         }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            this.SuspendLayout();
+            this.ResumeLayout();
+        }
+
+        
     }
 }

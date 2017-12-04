@@ -35,12 +35,12 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageMain = new System.Windows.Forms.TabPage();
             this.tableLayoutPanelMainView = new System.Windows.Forms.TableLayoutPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxMoon = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanelClock = new System.Windows.Forms.TableLayoutPanel();
             this.labelClock = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBoxMainBackground = new System.Windows.Forms.PictureBox();
+            this.labelLatestTemperature = new System.Windows.Forms.Label();
+            this.labelLatestHumidity = new System.Windows.Forms.Label();
+            this.pictureBoxWeather = new System.Windows.Forms.PictureBox();
             this.tabPageInfo = new System.Windows.Forms.TabPage();
             this.dataGridViewInfo = new System.Windows.Forms.DataGridView();
             this.tabPageAdmin = new System.Windows.Forms.TabPage();
@@ -60,14 +60,15 @@
             this.button7HoursAgo = new System.Windows.Forms.Button();
             this.timerClock = new System.Windows.Forms.Timer(this.components);
             this.timerUpdateMainview = new System.Windows.Forms.Timer(this.components);
+            this.timerUpdateBackground = new System.Windows.Forms.Timer(this.components);
+            this.timerColorAnimation = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageMain.SuspendLayout();
             this.tableLayoutPanelMainView.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMoon)).BeginInit();
             this.tableLayoutPanelClock.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMainBackground)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWeather)).BeginInit();
             this.tabPageInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInfo)).BeginInit();
             this.tabPageAdmin.SuspendLayout();
@@ -132,8 +133,8 @@
             // 
             // tabPageMain
             // 
+            this.tabPageMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tabPageMain.Controls.Add(this.tableLayoutPanelMainView);
-            this.tabPageMain.Controls.Add(this.pictureBoxMainBackground);
             this.tabPageMain.Location = new System.Drawing.Point(4, 22);
             this.tabPageMain.Name = "tabPageMain";
             this.tabPageMain.Padding = new System.Windows.Forms.Padding(3);
@@ -148,37 +149,30 @@
             this.tableLayoutPanelMainView.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanelMainView.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanelMainView.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanelMainView.Controls.Add(this.pictureBox1, 2, 2);
-            this.tableLayoutPanelMainView.Controls.Add(this.pictureBox2, 0, 2);
+            this.tableLayoutPanelMainView.Controls.Add(this.pictureBoxMoon, 0, 2);
             this.tableLayoutPanelMainView.Controls.Add(this.tableLayoutPanelClock, 1, 2);
-            this.tableLayoutPanelMainView.Controls.Add(this.label1, 1, 1);
+            this.tableLayoutPanelMainView.Controls.Add(this.labelLatestTemperature, 2, 3);
+            this.tableLayoutPanelMainView.Controls.Add(this.labelLatestHumidity, 0, 3);
+            this.tableLayoutPanelMainView.Controls.Add(this.pictureBoxWeather, 2, 2);
             this.tableLayoutPanelMainView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelMainView.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanelMainView.Name = "tableLayoutPanelMainView";
-            this.tableLayoutPanelMainView.RowCount = 3;
-            this.tableLayoutPanelMainView.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanelMainView.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanelMainView.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanelMainView.RowCount = 4;
+            this.tableLayoutPanelMainView.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanelMainView.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanelMainView.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanelMainView.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanelMainView.Size = new System.Drawing.Size(506, 309);
             this.tableLayoutPanelMainView.TabIndex = 1;
             // 
-            // pictureBox1
+            // pictureBoxMoon
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(339, 209);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(164, 97);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Location = new System.Drawing.Point(3, 209);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(162, 97);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
+            this.pictureBoxMoon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxMoon.Location = new System.Drawing.Point(3, 187);
+            this.pictureBoxMoon.Name = "pictureBoxMoon";
+            this.pictureBoxMoon.Size = new System.Drawing.Size(162, 86);
+            this.pictureBoxMoon.TabIndex = 1;
+            this.pictureBoxMoon.TabStop = false;
             // 
             // tableLayoutPanelClock
             // 
@@ -188,43 +182,59 @@
             this.tableLayoutPanelClock.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanelClock.Controls.Add(this.labelClock, 1, 1);
             this.tableLayoutPanelClock.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelClock.Location = new System.Drawing.Point(171, 209);
+            this.tableLayoutPanelClock.Location = new System.Drawing.Point(171, 187);
             this.tableLayoutPanelClock.Name = "tableLayoutPanelClock";
             this.tableLayoutPanelClock.RowCount = 3;
             this.tableLayoutPanelClock.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanelClock.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.tableLayoutPanelClock.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanelClock.Size = new System.Drawing.Size(162, 97);
+            this.tableLayoutPanelClock.Size = new System.Drawing.Size(162, 86);
             this.tableLayoutPanelClock.TabIndex = 3;
             // 
             // labelClock
             // 
             this.labelClock.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelClock.Font = new System.Drawing.Font("Bahnschrift", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelClock.Location = new System.Drawing.Point(19, 9);
+            this.labelClock.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelClock.Location = new System.Drawing.Point(19, 8);
             this.labelClock.Name = "labelClock";
-            this.labelClock.Size = new System.Drawing.Size(123, 77);
+            this.labelClock.Size = new System.Drawing.Size(123, 68);
             this.labelClock.TabIndex = 2;
             this.labelClock.Text = "00 : 00";
             this.labelClock.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
-            // label1
+            // labelLatestTemperature
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(171, 103);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "label1";
+            this.labelLatestTemperature.AutoSize = true;
+            this.labelLatestTemperature.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelLatestTemperature.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLatestTemperature.Location = new System.Drawing.Point(339, 276);
+            this.labelLatestTemperature.Name = "labelLatestTemperature";
+            this.labelLatestTemperature.Size = new System.Drawing.Size(164, 33);
+            this.labelLatestTemperature.TabIndex = 4;
+            this.labelLatestTemperature.Text = "Temperature";
+            this.labelLatestTemperature.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBoxMainBackground
+            // labelLatestHumidity
             // 
-            this.pictureBoxMainBackground.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBoxMainBackground.Location = new System.Drawing.Point(3, 3);
-            this.pictureBoxMainBackground.Name = "pictureBoxMainBackground";
-            this.pictureBoxMainBackground.Size = new System.Drawing.Size(506, 309);
-            this.pictureBoxMainBackground.TabIndex = 0;
-            this.pictureBoxMainBackground.TabStop = false;
+            this.labelLatestHumidity.AutoSize = true;
+            this.labelLatestHumidity.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelLatestHumidity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLatestHumidity.Location = new System.Drawing.Point(3, 276);
+            this.labelLatestHumidity.Name = "labelLatestHumidity";
+            this.labelLatestHumidity.Size = new System.Drawing.Size(162, 33);
+            this.labelLatestHumidity.TabIndex = 5;
+            this.labelLatestHumidity.Text = "Humidity";
+            this.labelLatestHumidity.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBoxWeather
+            // 
+            this.pictureBoxWeather.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxWeather.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBoxWeather.Location = new System.Drawing.Point(339, 187);
+            this.pictureBoxWeather.Name = "pictureBoxWeather";
+            this.pictureBoxWeather.Size = new System.Drawing.Size(164, 86);
+            this.pictureBoxWeather.TabIndex = 0;
+            this.pictureBoxWeather.TabStop = false;
             // 
             // tabPageInfo
             // 
@@ -435,8 +445,21 @@
             // 
             // timerUpdateMainview
             // 
+            this.timerUpdateMainview.Enabled = true;
             this.timerUpdateMainview.Interval = 10000;
             this.timerUpdateMainview.Tick += new System.EventHandler(this.timerUpdateMainview_Tick);
+            // 
+            // timerUpdateBackground
+            // 
+            this.timerUpdateBackground.Enabled = true;
+            this.timerUpdateBackground.Interval = 300000;
+            this.timerUpdateBackground.Tick += new System.EventHandler(this.timerUpdateBackground_Tick);
+            // 
+            // timerColorAnimation
+            // 
+            this.timerColorAnimation.Enabled = true;
+            this.timerColorAnimation.Interval = 3000;
+            this.timerColorAnimation.Tick += new System.EventHandler(this.timerColorAnimation_Tick);
             // 
             // Form1
             // 
@@ -448,16 +471,16 @@
             this.MinimumSize = new System.Drawing.Size(650, 420);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Resize += new System.EventHandler(this.Form1_Resize);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPageMain.ResumeLayout(false);
             this.tableLayoutPanelMainView.ResumeLayout(false);
             this.tableLayoutPanelMainView.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMoon)).EndInit();
             this.tableLayoutPanelClock.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMainBackground)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWeather)).EndInit();
             this.tabPageInfo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInfo)).EndInit();
             this.tabPageAdmin.ResumeLayout(false);
@@ -490,17 +513,19 @@
         private System.Windows.Forms.Button button8HoursAgo;
         private System.Windows.Forms.TabPage tabPageAdmin;
         private System.Windows.Forms.DataGridView dataGridViewInfo;
-        private System.Windows.Forms.PictureBox pictureBoxMainBackground;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelMainView;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBoxWeather;
+        private System.Windows.Forms.PictureBox pictureBoxMoon;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelClock;
         private System.Windows.Forms.Label labelClock;
         private System.Windows.Forms.Timer timerClock;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelLatestTemperature;
         private System.Windows.Forms.Timer timerUpdateMainview;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button buttonClearDatabase;
+        private System.Windows.Forms.Label labelLatestHumidity;
+        private System.Windows.Forms.Timer timerUpdateBackground;
+        private System.Windows.Forms.Timer timerColorAnimation;
     }
 }
 
