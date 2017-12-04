@@ -16,7 +16,7 @@ namespace testi2
     {
         private int hours = DateTime.Now.Hour;
         private int minutes = DateTime.Now.Minute;
-
+        
 
         public Form1()
         {
