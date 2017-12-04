@@ -16,7 +16,7 @@ namespace testi2
     {
         private int hours = DateTime.Now.Hour;
         private int minutes = DateTime.Now.Minute;
-        
+
 
         public Form1()
         {
@@ -44,7 +44,13 @@ namespace testi2
             dataGridViewInfo.Columns[2].HeaderText = "Humidity";
             dataGridViewInfo.Columns[3].HeaderText = "Light";
         }
+        private void ButtonEmpty_Click()
+        {
 
+        }
+        
+
+            
 
     }
 }
