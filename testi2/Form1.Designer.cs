@@ -251,35 +251,34 @@
             // 
             // tableLayoutPanel5
             // 
-            this.tableLayoutPanel5.ColumnCount = 5;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel5.ColumnCount = 4;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel5.Controls.Add(this.ButtonEmpty, 3, 3);
-            this.tableLayoutPanel5.Controls.Add(this.SelectedButton, 1, 3);
-            this.tableLayoutPanel5.Controls.Add(this.CleanButton, 2, 3);
-            this.tableLayoutPanel5.Controls.Add(this.monthCalendar1, 0, 3);
+            this.tableLayoutPanel5.Controls.Add(this.CleanButton, 3, 1);
+            this.tableLayoutPanel5.Controls.Add(this.monthCalendar1, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.SelectedButton, 0, 2);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 4;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(984, 397);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // ButtonEmpty
             // 
-            this.ButtonEmpty.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ButtonEmpty.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ButtonEmpty.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonEmpty.ForeColor = System.Drawing.Color.Red;
-            this.ButtonEmpty.Location = new System.Drawing.Point(591, 300);
+            this.ButtonEmpty.Location = new System.Drawing.Point(741, 300);
             this.ButtonEmpty.Name = "ButtonEmpty";
-            this.ButtonEmpty.Size = new System.Drawing.Size(190, 94);
+            this.ButtonEmpty.Size = new System.Drawing.Size(240, 94);
             this.ButtonEmpty.TabIndex = 1;
             this.ButtonEmpty.Text = "Empty database";
             this.ButtonEmpty.UseVisualStyleBackColor = true;
@@ -287,11 +286,11 @@
             // 
             // CleanButton
             // 
-            this.CleanButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.CleanButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CleanButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CleanButton.Location = new System.Drawing.Point(395, 301);
+            this.CleanButton.Location = new System.Drawing.Point(741, 102);
             this.CleanButton.Name = "CleanButton";
-            this.CleanButton.Size = new System.Drawing.Size(190, 93);
+            this.CleanButton.Size = new System.Drawing.Size(240, 93);
             this.CleanButton.TabIndex = 2;
             this.CleanButton.Text = "Clean wrong values";
             this.CleanButton.UseVisualStyleBackColor = true;
@@ -299,19 +298,18 @@
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.monthCalendar1.Location = new System.Drawing.Point(9, 226);
+            this.monthCalendar1.Location = new System.Drawing.Point(9, 9);
             this.monthCalendar1.MaxSelectionCount = 31;
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 3;
             // 
             // SelectedButton
             // 
-            this.SelectedButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.SelectedButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SelectedButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SelectedButton.Location = new System.Drawing.Point(199, 301);
+            this.SelectedButton.Location = new System.Drawing.Point(3, 201);
             this.SelectedButton.Name = "SelectedButton";
-            this.SelectedButton.Size = new System.Drawing.Size(190, 93);
+            this.SelectedButton.Size = new System.Drawing.Size(240, 93);
             this.SelectedButton.TabIndex = 4;
             this.SelectedButton.Text = "Delete selected";
             this.SelectedButton.UseVisualStyleBackColor = true;
