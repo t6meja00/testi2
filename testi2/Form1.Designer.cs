@@ -320,6 +320,7 @@
             // 
             this.textBoxSearch.Location = new System.Drawing.Point(4, 4);
             this.textBoxSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxSearch.MaxLength = 18;
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(179, 22);
             this.textBoxSearch.TabIndex = 3;

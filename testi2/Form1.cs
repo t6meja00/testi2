@@ -50,60 +50,78 @@ namespace testi2
 
         private void buttonShowAll_Click(object sender, EventArgs e)
         {
+            TabCheck();
             string query = "SELECT * FROM weather";
             FillData(query);
         }
 
+        private void TabCheck()
+        {
+            if (tabControl1.SelectedIndex != 1)
+            {
+                tabControl1.SelectedIndex = 1;
+            }
+        }
+
         private void buttonCurrentTime_Click(object sender, EventArgs e)
         {
+            TabCheck();
             string query = "SELECT * FROM weather WHERE HOUR(time) = " + ((Convert.ToInt16(hours)).ToString());
             FillData(query);
         }
 
         private void buttonLastHour_Click(object sender, EventArgs e)
         {
+            TabCheck();
             string query = "SELECT * FROM weather WHERE HOUR(time) = " + ((Convert.ToInt16(hours) - 1).ToString());
             FillData(query);
         }
 
         private void button2HoursAgo_Click(object sender, EventArgs e)
         {
+            TabCheck();
             string query = "SELECT * FROM weather WHERE HOUR(time) = " + ((Convert.ToInt16(hours) - 2).ToString());
             FillData(query);
         }
 
         private void button3HoursAgo_Click(object sender, EventArgs e)
         {
+            TabCheck();
             string query = "SELECT * FROM weather WHERE HOUR(time) = " + ((Convert.ToInt16(hours) - 3).ToString());
             FillData(query);
         }
 
         private void button4HoursAgo_Click(object sender, EventArgs e)
         {
+            TabCheck();
             string query = "SELECT * FROM weather WHERE HOUR(time) = " + ((Convert.ToInt16(hours) - 4).ToString());
             FillData(query);
         }
 
         private void button5HoursAgo_Click(object sender, EventArgs e)
         {
+            TabCheck();
             string query = "SELECT * FROM weather WHERE HOUR(time) = " + ((Convert.ToInt16(hours) - 5).ToString());
             FillData(query);
         }
 
         private void button6HoursAgo_Click(object sender, EventArgs e)
         {
+            TabCheck();
             string query = "SELECT * FROM weather WHERE HOUR(time) = " + ((Convert.ToInt16(hours) - 6).ToString());
             FillData(query);
         }
 
         private void button7HoursAgo_Click(object sender, EventArgs e)
         {
+            TabCheck();
             string query = "SELECT * FROM weather WHERE HOUR(time) = " + ((Convert.ToInt16(hours) - 7).ToString());
             FillData(query);
         }
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
+            TabCheck();
             string query = "SELECT * FROM weather WHERE DAY(time) = '" + textBoxSearch.Text + "%'; ";
             if (Database.IsEmpty(query))
             {
