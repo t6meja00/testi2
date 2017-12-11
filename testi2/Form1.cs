@@ -31,34 +31,10 @@ namespace testi2
 
         }
 
-        private void FillData(string query, string haku=null)
+        private void FillData(string query)
         {
             Database.conn.Close();
-            if (haku == null)
-            {
-                
-            }
-            else
-            {
-                try
-                {
-                    Database.conn.Open();
-                    using (var cmd = new MySqlCommand(query))
-                    {
-                        cmd.Parameters.AddWithValue("@haku", haku);
-
-                        var objDataSet = new DataSet();
-                        var objDataAdapter = new MySqlDataAdapter(cmd);
-                        objDataAdapter.Fill(objDataSet);
-
-                        dataGridViewInfo.DataSource = objDataSet;
-                    }
-                }
-                catch (Exception)
-                {
-
-                }
-            }
+            
            
             
             dataGridViewInfo.Columns[0].HeaderText = "Time";
