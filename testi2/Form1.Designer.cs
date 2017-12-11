@@ -419,7 +419,6 @@
             this.ButtonEmpty.TabIndex = 1;
             this.ButtonEmpty.Text = "Clear database";
             this.ButtonEmpty.UseVisualStyleBackColor = true;
-            this.ButtonEmpty.Click += new System.EventHandler(this.ButtonEmpty_Click);
             // 
             // Form1
             // 
