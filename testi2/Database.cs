@@ -19,7 +19,7 @@ namespace testi2
             {
                 // Open the connection
                 conn.Open();
-                
+
             }
             finally
             {
@@ -30,9 +30,10 @@ namespace testi2
                 }
             }
         }
-        public static void Execute(string query) { 
-        MySqlCommand cmd = Database.conn.CreateCommand();
-        cmd.CommandText = query;
+        public static void Execute(string query)
+        {
+            MySqlCommand cmd = Database.conn.CreateCommand();
+            cmd.CommandText = query;
             if (reader != null)
             {
                 reader.Close();
@@ -51,13 +52,32 @@ namespace testi2
 
             while (reader.Read())
             {
-             
+
             }
             Database.conn.Close();
         }
 
-       
-        
+        public static bool IsEmpty(string query)
+        {
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+
+            conn.Open();
+
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            if (reader.Read())
+            {
+                conn.Close();
+                return false;
+            }
+            else
+            { 
+                conn.Close();
+                return true;
+            }
+
+        }
+
         public static double ListCalc(int index)
         {
             List<double> temp = new List<double>();
@@ -88,15 +108,15 @@ namespace testi2
 
             }
 
-            if(index == 0)
+            if (index == 0)
             {
                 return average;
             }
-            else if(index == 1)
+            else if (index == 1)
             {
                 return max;
             }
-            else if(index == 2)
+            else if (index == 2)
             {
                 return min;
             }
