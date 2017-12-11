@@ -56,26 +56,7 @@ namespace testi2
             Database.conn.Close();
         }
 
-        public static bool IsEmpty(string query)
-        {
-            MySqlCommand cmd = new MySqlCommand(query, conn);
-
-            conn.Open();
-
-            MySqlDataReader reader = cmd.ExecuteReader();
-
-            if (reader.Read())
-            {
-                conn.Close();
-                return false;
-            }
-            else
-            {
-                conn.Close();
-                return true;
-            }
-            
-        }
+       
         
         public static double ListCalc(int index)
         {

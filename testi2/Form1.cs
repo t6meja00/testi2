@@ -31,21 +31,63 @@ namespace testi2
 
         }
 
-        private void FillData(string query)
+        private void FillData(string query, string haku=null)
         {
             Database.conn.Close();
-            using (MySqlDataAdapter a = new MySqlDataAdapter(
-                    query, Database.conn))
+            if (haku == null)
             {
-                DataTable t = new DataTable();
-                a.Fill(t);
-                dataGridViewInfo.DataSource = t;
+                
             }
+            else
+            {
+                try
+                {
+                    Database.conn.Open();
+                    using (var cmd = new MySqlCommand(query))
+                    {
+                        cmd.Parameters.AddWithValue("@haku", haku);
+
+                        var objDataSet = new DataSet();
+                        var objDataAdapter = new MySqlDataAdapter(cmd);
+                        objDataAdapter.Fill(objDataSet);
+
+                        dataGridViewInfo.DataSource = objDataSet;
+                    }
+                }
+                catch (Exception)
+                {
+
+                }
+            }
+           
+            
             dataGridViewInfo.Columns[0].HeaderText = "Time";
             dataGridViewInfo.Columns[1].HeaderText = "Temperature";
             dataGridViewInfo.Columns[2].HeaderText = "Humidity";
             dataGridViewInfo.Columns[3].HeaderText = "Light";
             dataGridViewInfo.Sort(dataGridViewInfo.Columns[0], ListSortDirection.Descending);
+        }
+
+        public bool IsEmpty(string query, string haku)
+        {
+            MySqlCommand cmd = new MySqlCommand(query, Database.conn);
+            cmd.Parameters.AddWithValue("@haku", haku);
+            Database.conn.Open();
+
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            if (reader.Read())
+            {
+                Database.conn.Close();
+                return false;
+            }
+            else
+            {
+                Database.conn.Close();
+                
+                return true;
+            }
+
         }
 
         private void buttonShowAll_Click(object sender, EventArgs e)
@@ -122,26 +164,25 @@ namespace testi2
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             TabCheck();
-            string query = "SELECT * FROM weather WHERE DAY(time) = '" + textBoxSearch.Text + "%'; ";
-            if (Database.IsEmpty(query))
+            string query = "SELECT * FROM weather WHERE DAY(time) = @haku; ";
+            if (IsEmpty(query, textBoxSearch.Text))
             {
-                query = "SELECT * FROM weather WHERE temperature LIKE '%" + textBoxSearch.Text + "%'; ";
-                if (Database.IsEmpty(query))
+                query = "SELECT * FROM weather WHERE temperature LIKE '%@haku%'; ";
+                if (IsEmpty(query, textBoxSearch.Text))
                 {
-                    query = "SELECT * FROM weather WHERE humidity LIKE '%" + textBoxSearch.Text + "%'; ";
-                    if (Database.IsEmpty(query))
+                    query = "SELECT * FROM weather WHERE humidity LIKE '%@haku%'; ";
+                    if (IsEmpty(query, textBoxSearch.Text))
                     {
-                        query = "SELECT * FROM weather WHERE light LIKE '%" + textBoxSearch.Text + "%'; ";
-                        FillData(query);
+                        query = "SELECT * FROM weather WHERE light LIKE '% @haku%'; ";
                     }
                     else
                     {
-                        FillData(query);
+                        
                     }
                 }
                 else
                 {
-                    FillData(query);
+
                 }
             }
             else
