@@ -76,7 +76,11 @@ namespace testi2
             catch (Exception e)
             {
                 System.Windows.Forms.MessageBox.Show(e.ToString());
-                return "-";
+                return "0";
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 

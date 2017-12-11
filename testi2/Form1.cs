@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
@@ -19,7 +20,16 @@ namespace testi2
 
         private int hours = DateTime.Now.Hour;
         private int minutes = DateTime.Now.Minute;
+
+        static double timeToSunsetHours = 0;
+        static double timeToSunset = 0;
+        static double timeToSunriseHours = 0;
+        static double timeToSunrise = 0;
         
+
+        List<string> colors = new List<string> { "#48A6E6", "#3d86c6", "#316eaf", "#295b9b", "#214589", "#1f3c82", "#1f3182", "#17226b", "#101851", "#080d33" };
+
+
         public Form1()
         {
             InitializeComponent();
@@ -28,17 +38,42 @@ namespace testi2
             SetStyle(ControlStyles.AllPaintingInWmPaint, true);
             SetStyle(ControlStyles.DoubleBuffer, true);
 
-            labelClock.Text = hours.ToString() + " : " + minutes.ToString();
+            labelClock.Text = hours.ToString() + " . " + minutes.ToString();
             labelLatestHumidity.Text = getWeatherInfo.GetHumidity() + " %";
             labelLatestTemperature.Text = getWeatherInfo.GetTemperature() + " C";
+
+            Console.WriteLine((getWeatherInfo.GetSunset() - DateTime.Now.TimeOfDay).Minute);
+
+            timeToSunset = getWeatherInfo.GetSunset().Subtract(DateTime.Now).TotalMinutes;
+            timeToSunrise = getWeatherInfo.GetSunrise().Subtract(DateTime.Now).TotalMinutes;
 
             UpdateBackgroundImage();
             pictureBoxMoon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             Console.WriteLine(moon.MoonAge(DateTime.Today));
             UpdateMoon(moon.MoonAge(DateTime.Today));
+            CheckWeatherChanges();
+            UpdateDayLength();
 
-            ColorAnimation();
+            if (timeToSunset < 30 && timeToSunset > 0)
+            {
+                BackColorForSunset();
+            }
+            else if (timeToSunrise < 30 && timeToSunrise > 0)
+            {
+                BackColorForSunrise();
+            }
+            else if (getWeatherInfo.IsNight())
+            {
+                tabPageMain.BackColor = System.Drawing.ColorTranslator.FromHtml(colors[9]);
+            }
+            else
+            {
+                tabPageMain.BackColor = System.Drawing.ColorTranslator.FromHtml(colors[0]);
+            }
 
+            timerUpdateMainview.Start();
+            timerColorAnimationForSunrise.Start();
+            timerColorAnimationForSunset.Start();
         }
 
         private void FillData(string query)
@@ -71,6 +106,28 @@ namespace testi2
             this.ResumeLayout();
         }
 
-        
+        private void tableLayoutPanelMainView_DoubleClick(object sender, EventArgs e)
+        {
+            Console.WriteLine("double clicked");
+            Thread threadFullScreen = new Thread(new ThreadStart(OpenFullScreenView));
+            threadFullScreen.Start();
+        }
+
+        private void OpenFullScreenView()
+        {
+            if (InvokeRequired)
+            {
+                this.Invoke(new Action(() => CreateAndShowForm()));
+                return;
+            }
+            CreateAndShowForm();
+
+        }
+
+        private void CreateAndShowForm()
+        {
+            var frm = new MainViewFullScreen();
+            frm.Show();
+        }
     }
 }

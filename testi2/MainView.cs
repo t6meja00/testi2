@@ -8,49 +8,139 @@ using System.Threading.Tasks;
 
 namespace testi2
 {
-    
-
     public partial class Form1
     {
-        DateTime date = DateTime.Today;
-        DateTime sunrise = DateTime.Now;
-        DateTime sunset = DateTime.Now;
-        bool isSunrise = false;
-        bool isSunset = false;
+        
         int i = 0;
-        List<string> colors = new List<string> { "#48A6E6", "#3d86c6", "#316eaf", "#295b9b", "#214589", "#1f3c82", "#1f3182", "#17226b", "#101851", "#080d33"  };
+        double tempHourAgo = 0;
+        double tempCurrent = 0;
+        double humidityHourAgo = 0;
+        double humidityCurrent = 0;
 
+        
+
+        string query = "";
 
         private void timerClock_Tick(object sender, EventArgs e)
         {
             UpdateClock();
-            
         }
 
         private void timerUpdateMainview_Tick(object sender, EventArgs e)
         {
             UpdateTempAndHumidity();
-            
+            CheckWeatherChanges();
         }
 
-        private void ColorAnimation()
+        private void CheckWeatherChanges()
         {
-            timerColorAnimation.Start();
-            
-        }
+            query = "SELECT avg(temperature) FROM weather WHERE DATE(time) = '" + DateTime.Today.ToString("yyyy.MM.dd") + "' AND HOUR(time) = '" + (DateTime.Now.Hour - 1).ToString() + "';";
 
-        private void timerColorAnimation_Tick(object sender, EventArgs e)
-        {
-            tabPageMain.BackColor = System.Drawing.ColorTranslator.FromHtml(colors[i]);
+            double.TryParse(Database.GetOneCell(query), out tempHourAgo);
+            double.TryParse(getWeatherInfo.GetTemperature(), out tempCurrent);
             
-            if (i == 9)
+            if (tempCurrent > tempHourAgo)
             {
-                i = 0;
-                timerColorAnimation.Stop();
+                pictureBoxTemperatureChange.Image = Properties.Resources.green_arrow;
             }
             else
             {
-                i++;
+                pictureBoxTemperatureChange.Image = Properties.Resources.red_arrow;
+            }
+
+            query = "SELECT avg(humidity) FROM weather WHERE DATE(time) = '" + DateTime.Today.ToString("yyyy.MM.dd") + "' AND HOUR(time) = '" + (DateTime.Now.Hour - 1).ToString() + "';";
+
+            double.TryParse(Database.GetOneCell(query), out humidityHourAgo);
+            double.TryParse(getWeatherInfo.GetHumidity(), out humidityCurrent);
+            
+            if (humidityCurrent > humidityHourAgo)
+            {
+                pictureBoxHumidityChange.Image = Properties.Resources.green_arrow;
+            }
+            else
+            {
+                pictureBoxHumidityChange.Image = Properties.Resources.red_arrow;
+            }
+
+            int.TryParse(getWeatherInfo.GetLight(), out int light);
+
+            
+            if (getWeatherInfo.IsNight() == false)
+            {
+                if (tempCurrent < 0 && humidityCurrent > 50)
+                {
+                    pictureBoxWeather.Image = Properties.Resources.snowrain;
+                }
+                else if (tempCurrent > 0 && humidityCurrent > 50)
+                {
+                    pictureBoxWeather.Image = Properties.Resources.rainy;
+                }
+                else if (light < 300)
+                {
+                    pictureBoxWeather.Image = Properties.Resources.cloudy;
+                }
+                else if (light > 300)
+                {
+                    pictureBoxWeather.Image = Properties.Resources.sunny;
+                }
+            }
+            else
+            {
+                pictureBoxWeather.Image = Properties.Resources.star;
+            }
+        }
+
+        private void timerColorAnimationForSunrise_Tick(object sender, EventArgs e)
+        {
+            timeToSunriseHours = (DateTime.Now).Subtract(getWeatherInfo.GetSunrise()).Hours;
+            timeToSunrise = (DateTime.Now).Subtract(getWeatherInfo.GetSunrise()).Minutes;
+            BackColorForSunrise();
+            
+        }
+
+        private void BackColorForSunrise()
+        {
+            if (timeToSunrise < 30 && timeToSunrise > 0 && timeToSunriseHours < 1)
+            {
+                if (timeToSunrise > 0 && timeToSunrise <= 3) { i = 0; }
+                if (timeToSunrise > 3 && timeToSunrise <= 6) { i = 1; }
+                if (timeToSunrise > 6 && timeToSunrise <= 9) { i = 2; }
+                if (timeToSunrise > 9 && timeToSunrise <= 12) { i = 3; }
+                if (timeToSunrise > 12 && timeToSunrise <= 15) { i = 4; }
+                if (timeToSunrise > 15 && timeToSunrise <= 18) { i = 5; }
+                if (timeToSunrise > 18 && timeToSunrise <= 21) { i = 6; }
+                if (timeToSunrise > 21 && timeToSunrise <= 24) { i = 7; }
+                if (timeToSunrise > 24 && timeToSunrise <= 27) { i = 8; }
+                if (timeToSunrise > 27 && timeToSunrise <= 30) { i = 9; }
+                else {  }
+                tabPageMain.BackColor = System.Drawing.ColorTranslator.FromHtml(colors[i]);
+            }
+        }
+
+        private void timerColorAnimationForSunset_Tick(object sender, EventArgs e)
+        {
+            timeToSunsetHours = getWeatherInfo.GetSunset().Subtract(DateTime.Now).Hours;
+            timeToSunset = getWeatherInfo.GetSunset().Subtract(DateTime.Now).Minutes;
+            BackColorForSunset();
+            
+        }
+
+        private void BackColorForSunset()
+        {
+            if (timeToSunset < 30 && timeToSunset > 0 && timeToSunsetHours < 1)
+            {
+                if (timeToSunset > 0 && timeToSunset <= 3) { i = 9; }
+                if (timeToSunset > 3 && timeToSunset <= 6) { i = 8; }
+                if (timeToSunset > 6 && timeToSunset <= 9) { i = 7; }
+                if (timeToSunset > 9 && timeToSunset <= 12) { i = 6; }
+                if (timeToSunset > 12 && timeToSunset <= 15) { i = 5; }
+                if (timeToSunset > 15 && timeToSunset <= 18) { i = 4; }
+                if (timeToSunset > 18 && timeToSunset <= 21) { i = 3; }
+                if (timeToSunset > 21 && timeToSunset <= 24) { i = 2; }
+                if (timeToSunset > 24 && timeToSunset <= 27) { i = 1; }
+                if (timeToSunset > 27 && timeToSunset <= 30) { i = 0; }
+
+                tabPageMain.BackColor = System.Drawing.ColorTranslator.FromHtml(colors[i]);
             }
         }
 
@@ -63,25 +153,59 @@ namespace testi2
             {
                 if (minutes < 10)
                 {
-                    labelClock.Text = hours.ToString() + " : 0" + minutes.ToString();
+                    labelClock.Text = hours.ToString() + " . 0" + minutes.ToString();
                 }
                 if (hours < 10)
                 {
-                    labelClock.Text = "0" + hours.ToString() + " : " + minutes.ToString();
+                    labelClock.Text = "0" + hours.ToString() + " . " + minutes.ToString();
                 }
                 if (minutes < 10 && hours < 10)
                 {
-                    labelClock.Text = "0" + hours.ToString() + " : 0" + minutes.ToString();
+                    labelClock.Text = "0" + hours.ToString() + " . 0" + minutes.ToString();
                 }
             }
             else
             {
-                labelClock.Text = hours.ToString() + " : " + minutes.ToString();
+                labelClock.Text = hours.ToString() + " . " + minutes.ToString();
             }
             
         }
 
-        
+        private void UpdateDayLength()
+        {
+            // Sunrise
+            if (getWeatherInfo.GetSunrise().Minute < 10)
+            {
+                labelSunrise.Text = "Sunrise: " + getWeatherInfo.GetSunrise().Hour + ".0" + getWeatherInfo.GetSunrise().Minute;
+            }
+            if (getWeatherInfo.GetSunrise().Hour < 10)
+            {
+                labelSunrise.Text = "Sunrise: " + getWeatherInfo.GetSunrise().Hour + "0." + getWeatherInfo.GetSunrise().Minute;
+            }
+            if (getWeatherInfo.GetSunrise().Hour >= 10 && getWeatherInfo.GetSunrise().Minute >= 10)
+            {
+                labelSunrise.Text = "Sunrise: " + getWeatherInfo.GetSunrise().Hour + "." + getWeatherInfo.GetSunrise().Minute;
+            }
+            Console.WriteLine("SUNRISE MIN " + getWeatherInfo.GetSunrise().Minute);
+            Console.WriteLine("SUNRISE HOUR " + getWeatherInfo.GetSunrise().Hour);
+            Console.WriteLine("SUNRISE MIN AND HOUR" + getWeatherInfo.GetSunrise().Minute + " " + getWeatherInfo.GetSunrise().Hour);
+            // Sunset
+            if (getWeatherInfo.GetSunset().Minute < 10)
+            {
+                labelSunset.Text = "Sunset: " + getWeatherInfo.GetSunset().Hour + ".0" + getWeatherInfo.GetSunset().Minute;
+            }
+            if (getWeatherInfo.GetSunset().Hour < 10)
+            {
+                labelSunset.Text = "Sunset: " + getWeatherInfo.GetSunset().Hour + "0." + getWeatherInfo.GetSunset().Minute;
+            }
+            if (getWeatherInfo.GetSunset().Hour >= 10 && getWeatherInfo.GetSunset().Minute >= 10)
+            {
+                labelSunset.Text = "Sunset: " + getWeatherInfo.GetSunset().Hour + "." + getWeatherInfo.GetSunset().Minute;
+            }
+
+            labelDayLength.Text = "Day length: " + (getWeatherInfo.GetSunset() - getWeatherInfo.GetSunrise()).Hours.ToString() + " h " + (getWeatherInfo.GetSunset() - getWeatherInfo.GetSunrise()).Minutes.ToString() + " min";
+
+        }
 
         private void UpdateTempAndHumidity()
         {
@@ -89,28 +213,7 @@ namespace testi2
             labelLatestTemperature.Text = getWeatherInfo.GetTemperature() + " C";
         }
 
-        private bool IsNight()
-        {
-            date = DateTime.Today;
-            SunTimes.Instance.CalculateSunRiseSetTimes(new SunTimes.LatitudeCoords
-                                                      (65, 0, 0, SunTimes.LatitudeCoords.Direction.North),
-                                                       new SunTimes.LongitudeCoords
-                                                      (25, 30, 0, SunTimes.LongitudeCoords.Direction.East),
-                                                       date, ref sunrise, ref sunset,
-                                                       ref isSunrise, ref isSunset);
-            Console.WriteLine(sunrise);
-            Console.WriteLine(sunset);
-            if (sunrise > DateTime.Now || DateTime.Now > sunset)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-            
-        }
-
+        
         private void timerUpdateBackground_Tick(object sender, EventArgs e)
         {
             UpdateMoon(moon.MoonAge(DateTime.Today));
@@ -119,35 +222,15 @@ namespace testi2
 
         private void UpdateBackgroundImage()
         {
-            Console.WriteLine(IsNight());
+            if (getWeatherInfo.GetSunset().Hour - DateTime.Now.Hour < 1 && getWeatherInfo.GetSunset().Minute - DateTime.Now.Minute < 30)
+            {
+                timerColorAnimationForSunset.Start();
+            }
+            if (getWeatherInfo.GetSunrise().Hour - DateTime.Now.Hour < 1 && getWeatherInfo.GetSunrise().Minute - DateTime.Now.Minute < 30)
+            {
+                timerColorAnimationForSunrise.Start();
+            }
             
-
-            if (IsNight())
-            {
-                pictureBoxWeather.Image = Properties.Resources.sun;
-
-                //#0526ff
-                labelClock.ForeColor = System.Drawing.ColorTranslator.FromHtml("#050DFF");
-                labelLatestHumidity.ForeColor = System.Drawing.ColorTranslator.FromHtml("#050DFF");
-                labelLatestTemperature.ForeColor = System.Drawing.ColorTranslator.FromHtml("#050DFF");
-            }
-            else
-            {
-                if (Convert.ToDouble(getWeatherInfo.GetTemperature()) < 0)
-                {
-                    pictureBoxWeather.Image = Properties.Resources.snow;
-                }
-                else
-                {
-                    // #08739e background color
-                    pictureBoxWeather.Image = Properties.Resources.sun;
-
-
-
-
-
-                }
-            }
             pictureBoxWeather.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             
         }

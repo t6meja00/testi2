@@ -160,6 +160,10 @@
     <Content Include="docs\MySqlParameter.xml" />
     <Content Include="docs\MySqlParameterCollection.xml" />
     <Content Include="docs\MySqlTransaction.xml" />
+    <None Include="Resources\star.png" />
+    <None Include="Resources\cloudy.png" />
+    <None Include="Resources\red_arrow.png" />
+    <None Include="Resources\green_arrow.png" />
     <None Include="Resources\moon16.png" />
     <None Include="Resources\moon15.png" />
     <None Include="Resources\moon14.png" />
