@@ -51,13 +51,11 @@
             this.tabPageInfo = new System.Windows.Forms.TabPage();
             this.dataGridViewInfo = new System.Windows.Forms.DataGridView();
             this.tabPageAdmin = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.ButtonEmpty = new System.Windows.Forms.Button();
-            this.SelectedButton = new System.Windows.Forms.Button();
-            this.CleanButton = new System.Windows.Forms.Button();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonClearDatabase = new System.Windows.Forms.Button();
+            this.buttonClear = new System.Windows.Forms.Button();
+            this.buttonEmpty = new System.Windows.Forms.Button();
+            this.SelectedButton = new System.Windows.Forms.Button();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.buttonSearch = new System.Windows.Forms.Button();
@@ -70,6 +68,7 @@
             this.button5HoursAgo = new System.Windows.Forms.Button();
             this.button6HoursAgo = new System.Windows.Forms.Button();
             this.button7HoursAgo = new System.Windows.Forms.Button();
+            this.buttonClearDatabase = new System.Windows.Forms.Button();
             this.timerClock = new System.Windows.Forms.Timer(this.components);
             this.timerUpdateMainview = new System.Windows.Forms.Timer(this.components);
             this.timerUpdateBackground = new System.Windows.Forms.Timer(this.components);
@@ -280,23 +279,32 @@
             // 
             // tableLayoutPanel5
             // 
-            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnCount = 5;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel5.Controls.Add(this.pictureBoxTemperatureChange, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.labelLatestTemperature, 1, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(339, 207);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowCount = 4;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel5.Size = new System.Drawing.Size(164, 25);
-            this.tableLayoutPanel5.TabIndex = 7;
+            this.tableLayoutPanel5.TabIndex = 0;
             // 
             // pictureBoxTemperatureChange
             // 
             this.pictureBoxTemperatureChange.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureBoxTemperatureChange.Location = new System.Drawing.Point(37, 3);
+            this.pictureBoxTemperatureChange.Location = new System.Drawing.Point(13, 3);
             this.pictureBoxTemperatureChange.Name = "pictureBoxTemperatureChange";
             this.pictureBoxTemperatureChange.Size = new System.Drawing.Size(25, 19);
             this.pictureBoxTemperatureChange.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -309,9 +317,9 @@
             this.labelLatestTemperature.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelLatestTemperature.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLatestTemperature.ForeColor = System.Drawing.SystemColors.Info;
-            this.labelLatestTemperature.Location = new System.Drawing.Point(68, 0);
+            this.labelLatestTemperature.Location = new System.Drawing.Point(44, 0);
             this.labelLatestTemperature.Name = "labelLatestTemperature";
-            this.labelLatestTemperature.Size = new System.Drawing.Size(93, 25);
+            this.labelLatestTemperature.Size = new System.Drawing.Size(55, 25);
             this.labelLatestTemperature.TabIndex = 4;
             this.labelLatestTemperature.Text = "Temperature";
             this.labelLatestTemperature.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -372,7 +380,7 @@
             this.dataGridViewInfo.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewInfo.Name = "dataGridViewInfo";
             this.dataGridViewInfo.ReadOnly = true;
-            this.dataGridViewInfo.Size = new System.Drawing.Size(978, 391);
+            this.dataGridViewInfo.Size = new System.Drawing.Size(506, 309);
             this.dataGridViewInfo.TabIndex = 2;
             // 
             // tabPageAdmin
@@ -385,70 +393,63 @@
             this.tabPageAdmin.Text = "Admin";
             this.tabPageAdmin.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel5
+            // tableLayoutPanel2
             // 
-            this.tableLayoutPanel5.ColumnCount = 5;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel5.Controls.Add(this.ButtonEmpty, 3, 3);
-            this.tableLayoutPanel5.Controls.Add(this.SelectedButton, 1, 3);
-            this.tableLayoutPanel5.Controls.Add(this.CleanButton, 2, 3);
-            this.tableLayoutPanel5.Controls.Add(this.monthCalendar1, 0, 3);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 4;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(984, 397);
-            this.tableLayoutPanel5.TabIndex = 0;
+            this.tableLayoutPanel2.ColumnCount = 4;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Controls.Add(this.buttonClear, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.buttonEmpty, 3, 1);
+            this.tableLayoutPanel2.Controls.Add(this.SelectedButton, 3, 2);
+            this.tableLayoutPanel2.Controls.Add(this.monthCalendar1, 3, 3);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 4;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(512, 315);
+            this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // ButtonEmpty
+            // buttonClear
             // 
-            this.ButtonEmpty.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ButtonEmpty.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonEmpty.ForeColor = System.Drawing.Color.Red;
-            this.ButtonEmpty.Location = new System.Drawing.Point(591, 300);
-            this.ButtonEmpty.Name = "ButtonEmpty";
-            this.ButtonEmpty.Size = new System.Drawing.Size(190, 94);
-            this.ButtonEmpty.TabIndex = 1;
-            this.ButtonEmpty.Text = "Empty database";
-            this.ButtonEmpty.UseVisualStyleBackColor = true;
+            this.buttonClear.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonClear.Location = new System.Drawing.Point(319, 3);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(190, 39);
+            this.buttonClear.TabIndex = 0;
+            this.buttonClear.Text = "Clear database";
+            this.buttonClear.UseVisualStyleBackColor = true;
+            // 
+            // buttonEmpty
+            // 
+            this.buttonEmpty.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonEmpty.Location = new System.Drawing.Point(319, 48);
+            this.buttonEmpty.Name = "buttonEmpty";
+            this.buttonEmpty.Size = new System.Drawing.Size(190, 39);
+            this.buttonEmpty.TabIndex = 1;
+            this.buttonEmpty.Text = "Empty Database";
+            this.buttonEmpty.UseVisualStyleBackColor = true;
             // 
             // SelectedButton
             // 
-            this.SelectedButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.SelectedButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SelectedButton.Location = new System.Drawing.Point(199, 301);
+            this.SelectedButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SelectedButton.Location = new System.Drawing.Point(319, 93);
             this.SelectedButton.Name = "SelectedButton";
-            this.SelectedButton.Size = new System.Drawing.Size(190, 93);
-            this.SelectedButton.TabIndex = 4;
+            this.SelectedButton.Size = new System.Drawing.Size(190, 39);
+            this.SelectedButton.TabIndex = 2;
             this.SelectedButton.Text = "Delete selected";
             this.SelectedButton.UseVisualStyleBackColor = true;
-            this.SelectedButton.Click += new System.EventHandler(this.SelectedButton_Click);
-            // 
-            // CleanButton
-            // 
-            this.CleanButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.CleanButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CleanButton.Location = new System.Drawing.Point(395, 301);
-            this.CleanButton.Name = "CleanButton";
-            this.CleanButton.Size = new System.Drawing.Size(190, 93);
-            this.CleanButton.TabIndex = 2;
-            this.CleanButton.Text = "Clean wrong values";
-            this.CleanButton.UseVisualStyleBackColor = true;
-            this.CleanButton.Click += new System.EventHandler(this.CleanButton_Click);
             // 
             // monthCalendar1
             // 
             this.monthCalendar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.monthCalendar1.Location = new System.Drawing.Point(9, 226);
-            this.monthCalendar1.MaxSelectionCount = 31;
+            this.monthCalendar1.Location = new System.Drawing.Point(325, 144);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 3;
             // 
@@ -589,6 +590,13 @@
             this.button7HoursAgo.Text = "7 hours ago";
             this.button7HoursAgo.UseVisualStyleBackColor = true;
             // 
+            // buttonClearDatabase
+            // 
+            this.buttonClearDatabase.Location = new System.Drawing.Point(0, 0);
+            this.buttonClearDatabase.Name = "buttonClearDatabase";
+            this.buttonClearDatabase.Size = new System.Drawing.Size(75, 23);
+            this.buttonClearDatabase.TabIndex = 0;
+            // 
             // timerClock
             // 
             this.timerClock.Enabled = true;
@@ -699,6 +707,10 @@
         private System.Windows.Forms.Label labelSunset;
         private System.Windows.Forms.Label labelDayLength;
         private System.Windows.Forms.Label labelSunrise;
+        private System.Windows.Forms.Button buttonClear;
+        private System.Windows.Forms.Button buttonEmpty;
+        private System.Windows.Forms.Button SelectedButton;
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
     }
 }
 

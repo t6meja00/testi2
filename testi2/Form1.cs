@@ -91,7 +91,7 @@ namespace testi2
             dataGridViewInfo.Columns[2].HeaderText = "Humidity";
             dataGridViewInfo.Columns[3].HeaderText = "Light";
         }
-        private void ButtonEmpty_Click(object sender, EventArgs e)
+        private void buttonEmpty_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
             {
@@ -99,7 +99,7 @@ namespace testi2
             }
         }
 
-        private void CleanButton_Click(object sender, EventArgs e)
+        private void buttonClear_Click(object sender, EventArgs e)
         {
             Database.Execute("DELETE from weather where temperature < -20 OR temperature > 80");
             Database.Execute("DELETE from weather where humidity < 0 OR humidity > 80");
@@ -145,7 +145,7 @@ namespace testi2
         private void SelectedButton_Click(object sender, EventArgs e)
         {
             string selectedDate = monthCalendar1.SelectionRange.Start.Date.ToString("yyyy-MM-dd");
-            Database.Execute("DELETE FROM weather WHERE time LIKE '%" +selectedDate+"%';");
+            Database.Execute("DELETE FROM weather WHERE time LIKE '%" + selectedDate + "%';");
         }
     }
 }
