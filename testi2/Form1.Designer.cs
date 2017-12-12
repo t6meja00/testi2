@@ -433,16 +433,19 @@
             this.buttonClear.TabIndex = 0;
             this.buttonClear.Text = "Clear database";
             this.buttonClear.UseVisualStyleBackColor = true;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
             // 
             // buttonEmpty
             // 
             this.buttonEmpty.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonEmpty.ForeColor = System.Drawing.Color.Red;
             this.buttonEmpty.Location = new System.Drawing.Point(583, 67);
             this.buttonEmpty.Name = "buttonEmpty";
             this.buttonEmpty.Size = new System.Drawing.Size(191, 58);
             this.buttonEmpty.TabIndex = 1;
             this.buttonEmpty.Text = "Empty Database";
             this.buttonEmpty.UseVisualStyleBackColor = true;
+            this.buttonEmpty.Click += new System.EventHandler(this.buttonEmpty_Click);
             // 
             // SelectedButton
             // 
@@ -453,6 +456,7 @@
             this.SelectedButton.TabIndex = 2;
             this.SelectedButton.Text = "Delete selected";
             this.SelectedButton.UseVisualStyleBackColor = true;
+            this.SelectedButton.Click += new System.EventHandler(this.SelectedButton_Click);
             // 
             // monthCalendar1
             // 
