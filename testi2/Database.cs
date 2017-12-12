@@ -19,7 +19,7 @@ namespace testi2
             {
                 // Open the connection
                 conn.Open();
-                
+
             }
             finally
             {
@@ -30,30 +30,60 @@ namespace testi2
                 }
             }
         }
-        public static void Execute(string query) { 
-        MySqlCommand cmd = Database.conn.CreateCommand();
-        cmd.CommandText = query;
+
+        public static void Execute(string query)
+        {
+            MySqlCommand command = conn.CreateCommand();
+            command.CommandText = query;
+
             if (reader != null)
             {
                 reader.Close();
-                Database.conn.Close();
+                conn.Close();
             }
+
             try
             {
-                Database.conn.Open();
+                conn.Open();
             }
-            catch (Exception error)
+            catch (Exception)
             {
-                MessageBox.Show("Error" + error);
-                Database.conn.Close();
+                conn.Close();
             }
-            reader = cmd.ExecuteReader();
+
+            reader = command.ExecuteReader();
 
             while (reader.Read())
             {
-             
+
             }
-            Database.conn.Close();
+
+            conn.Close();
         }
+
+        public static string GetOneCell(string query)
+        {
+            conn.Close();
+
+            try
+            {
+                conn.Open();
+
+                using (MySqlCommand command = new MySqlCommand(query, conn))
+                {
+                    return Convert.ToString(command.ExecuteScalar());
+                }
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.ToString());
+                return "0";
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
     }
 }
