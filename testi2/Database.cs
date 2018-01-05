@@ -11,7 +11,7 @@ namespace testi2
     public static class Database
     {
         private static MySqlDataReader reader = null;
-        public static MySqlConnection conn = new MySqlConnection("server = mysli.oamk.fi; database = opisk_t6meja00; user id = t6meja00; password = oT5JPmNamE59RWCj;");
+        public static MySqlConnection conn = new MySqlConnection("server = XXXXXXXXXX; database = XXXXXXX; user id = XXXXXXXXX; password = XXXXXXXXX;");
 
         public static void ExecuteQuery(string query)
         {
