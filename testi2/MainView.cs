@@ -31,7 +31,7 @@ namespace testi2
             UpdateTempAndHumidity();
             CheckWeatherChanges();
         }
-
+        //Arrows
         private void CheckWeatherChanges()
         {
             query = "SELECT avg(temperature) FROM weather WHERE DATE(time) = '" + DateTime.Today.ToString("yyyy.MM.dd") + "' AND HOUR(time) = '" + (DateTime.Now.Hour - 1).ToString() + "';";
@@ -62,6 +62,7 @@ namespace testi2
                 pictureBoxHumidityChange.Image = Properties.Resources.red_arrow;
             }
 
+            //Weather pictures
             int.TryParse(getWeatherInfo.GetLight(), out int light);
 
             
@@ -89,7 +90,7 @@ namespace testi2
                 pictureBoxWeather.Image = Properties.Resources.star;
             }
         }
-
+        
         private void timerColorAnimationForSunrise_Tick(object sender, EventArgs e)
         {
             timeToSunriseHours = (DateTime.Now).Subtract(getWeatherInfo.GetSunrise()).Hours;
@@ -97,7 +98,7 @@ namespace testi2
             BackColorForSunrise();
             
         }
-
+        //Background
         private void BackColorForSunrise()
         {
             if (timeToSunrise < 30 && timeToSunrise > 0 && timeToSunriseHours < 1)
@@ -143,7 +144,7 @@ namespace testi2
                 tabPageMain.BackColor = System.Drawing.ColorTranslator.FromHtml(colors[i]);
             }
         }
-
+        //Clock
         private void UpdateClock()
         {
             hours = DateTime.Now.Hour;
@@ -153,20 +154,20 @@ namespace testi2
             {
                 if (minutes < 10)
                 {
-                    labelClock.Text = hours.ToString() + " . 0" + minutes.ToString();
+                    labelClock.Text = hours.ToString() + " : 0" + minutes.ToString();
                 }
                 if (hours < 10)
                 {
-                    labelClock.Text = "0" + hours.ToString() + " . " + minutes.ToString();
+                    labelClock.Text = "0" + hours.ToString() + " : " + minutes.ToString();
                 }
                 if (minutes < 10 && hours < 10)
                 {
-                    labelClock.Text = "0" + hours.ToString() + " . 0" + minutes.ToString();
+                    labelClock.Text = "0" + hours.ToString() + " : 0" + minutes.ToString();
                 }
             }
             else
             {
-                labelClock.Text = hours.ToString() + " . " + minutes.ToString();
+                labelClock.Text = hours.ToString() + " : " + minutes.ToString();
             }
             
         }
@@ -176,15 +177,15 @@ namespace testi2
             // Sunrise
             if (getWeatherInfo.GetSunrise().Minute < 10)
             {
-                labelSunrise.Text = "Sunrise: " + getWeatherInfo.GetSunrise().Hour + ".0" + getWeatherInfo.GetSunrise().Minute;
+                labelSunrise.Text = "Sunrise: " + getWeatherInfo.GetSunrise().Hour + ":0" + getWeatherInfo.GetSunrise().Minute;
             }
             if (getWeatherInfo.GetSunrise().Hour < 10)
             {
-                labelSunrise.Text = "Sunrise: " + getWeatherInfo.GetSunrise().Hour + "0." + getWeatherInfo.GetSunrise().Minute;
+                labelSunrise.Text = "Sunrise: " + getWeatherInfo.GetSunrise().Hour + "0:" + getWeatherInfo.GetSunrise().Minute;
             }
             if (getWeatherInfo.GetSunrise().Hour >= 10 && getWeatherInfo.GetSunrise().Minute >= 10)
             {
-                labelSunrise.Text = "Sunrise: " + getWeatherInfo.GetSunrise().Hour + "." + getWeatherInfo.GetSunrise().Minute;
+                labelSunrise.Text = "Sunrise: " + getWeatherInfo.GetSunrise().Hour + ":" + getWeatherInfo.GetSunrise().Minute;
             }
             Console.WriteLine("SUNRISE MIN " + getWeatherInfo.GetSunrise().Minute);
             Console.WriteLine("SUNRISE HOUR " + getWeatherInfo.GetSunrise().Hour);
@@ -192,15 +193,15 @@ namespace testi2
             // Sunset
             if (getWeatherInfo.GetSunset().Minute < 10)
             {
-                labelSunset.Text = "Sunset: " + getWeatherInfo.GetSunset().Hour + ".0" + getWeatherInfo.GetSunset().Minute;
+                labelSunset.Text = "Sunset: " + getWeatherInfo.GetSunset().Hour + ":0" + getWeatherInfo.GetSunset().Minute;
             }
             if (getWeatherInfo.GetSunset().Hour < 10)
             {
-                labelSunset.Text = "Sunset: " + getWeatherInfo.GetSunset().Hour + "0." + getWeatherInfo.GetSunset().Minute;
+                labelSunset.Text = "Sunset: " + getWeatherInfo.GetSunset().Hour + "0:" + getWeatherInfo.GetSunset().Minute;
             }
             if (getWeatherInfo.GetSunset().Hour >= 10 && getWeatherInfo.GetSunset().Minute >= 10)
             {
-                labelSunset.Text = "Sunset: " + getWeatherInfo.GetSunset().Hour + "." + getWeatherInfo.GetSunset().Minute;
+                labelSunset.Text = "Sunset: " + getWeatherInfo.GetSunset().Hour + ":" + getWeatherInfo.GetSunset().Minute;
             }
 
             labelDayLength.Text = "Day length: " + (getWeatherInfo.GetSunset() - getWeatherInfo.GetSunrise()).Hours.ToString() + " h " + (getWeatherInfo.GetSunset() - getWeatherInfo.GetSunrise()).Minutes.ToString() + " min";

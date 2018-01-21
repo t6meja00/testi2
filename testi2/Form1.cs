@@ -37,7 +37,7 @@ namespace testi2
             SetStyle(ControlStyles.AllPaintingInWmPaint, true);
             SetStyle(ControlStyles.DoubleBuffer, true);
 
-            labelClock.Text = hours.ToString() + " . " + minutes.ToString();
+            labelClock.Text = hours.ToString() + " : " + minutes.ToString();
             labelLatestHumidity.Text = getWeatherInfo.GetHumidity() + " %";
             labelLatestTemperature.Text = getWeatherInfo.GetTemperature() + " C";
 
@@ -77,6 +77,7 @@ namespace testi2
             timerColorAnimationForSunset.Start();
         }
 
+        //Info page data
         private void FillData(string query)
         {
             Database.conn.Close();
@@ -94,6 +95,8 @@ namespace testi2
             dataGridViewInfo.Sort(dataGridViewInfo.Columns[0], ListSortDirection.Descending);
         }
 
+        //Admin page buttons
+
         private void buttonEmpty_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
@@ -104,8 +107,17 @@ namespace testi2
 
         private void buttonClear_Click(object sender, EventArgs e)
         {
-            Database.Execute("DELETE from weather where temperature < -20 OR temperature > 80");
-            Database.Execute("DELETE from weather where humidity < 0 OR humidity > 80");
+            if (MessageBox.Show("Are you sure?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+            {
+                Database.Execute("DELETE from weather where temperature < -20 OR temperature > 80");
+                Database.Execute("DELETE from weather where humidity < 20 OR humidity > 80");
+            }
+        }
+
+        private void SelectedButton_Click(object sender, EventArgs e)
+        {
+            string selectedDate = monthCalendar1.SelectionRange.Start.Date.ToString("yyyy-MM-dd");
+            Database.Execute("DELETE FROM weather WHERE time LIKE '%" + selectedDate + "%';");
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -145,11 +157,7 @@ namespace testi2
             var frm = new MainViewFullScreen();
             frm.Show();
         }
-        private void SelectedButton_Click(object sender, EventArgs e)
-        {
-            string selectedDate = monthCalendar1.SelectionRange.Start.Date.ToString("yyyy-MM-dd");
-            Database.Execute("DELETE FROM weather WHERE time LIKE '%" + selectedDate + "%';");
-        }
+        //Side buttons
         private void buttonShowAll_Click(object sender, EventArgs e)
         {
             TabCheck();
@@ -221,6 +229,7 @@ namespace testi2
             FillData(query);
         }
 
+        //Search
         private void buttonSearch_Click(object sender, EventArgs e)
         {
 
@@ -255,7 +264,7 @@ namespace testi2
 
 
 
-
+        //Down buttons
         private void buttonAverage_Click(object sender, EventArgs e)
         {
             int index = 0;
